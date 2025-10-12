@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: fee723933f898d744a02d998ad59307c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4872232557381416791
+    second: Chaos Sigil_0
+  - first:
+      213: 3899273371089374103
+    second: Chaos Sigil_1
+  - first:
+      213: -2041782730781092171
+    second: Chaos Sigil_2
+  - first:
+      213: 577921192637491902
+    second: Chaos Sigil_3
+  - first:
+      213: -2597559109785213167
+    second: Chaos Sigil_4
+  - first:
+      213: -4709316265536252585
+    second: Chaos Sigil_5
+  - first:
+      213: 1521055731515286029
+    second: Chaos Sigil_6
+  - first:
+      213: 2656233174541346676
+    second: Chaos Sigil_7
+  - first:
+      213: -7155359430139197584
+    second: Chaos Sigil_8
+  - first:
+      213: -7544064260805228315
+    second: Chaos Sigil_9
+  - first:
+      213: 6371465619871992514
+    second: Chaos Sigil_10
+  - first:
+      213: 4152171979078493646
+    second: Chaos Sigil_11
+  - first:
+      213: 5827893213263275571
+    second: Chaos Sigil_12
+  - first:
+      213: 7679985167963522721
+    second: Chaos Sigil_13
+  - first:
+      213: 812743651890444204
+    second: Chaos Sigil_14
+  - first:
+      213: -7745498403834122703
+    second: Chaos Sigil_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Chaos Sigil_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 254
+        width: 227
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a80032ad4a526cb0800000000000000
+      internalID: -4872232557381416791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 272
+        width: 134
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b0ce5c8700d1630800000000000000
+      internalID: 3899273371089374103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_2
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 363
+        width: 96
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b614479c612aa3e0800000000000000
+      internalID: -2041782730781092171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_3
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 275
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebae3534340350800800000000000000
+      internalID: 577921192637491902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 291
+        width: 169
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1172c2a80cd93fbd0800000000000000
+      internalID: -2597559109785213167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 101
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7551eb9bec525aeb0800000000000000
+      internalID: -4709316265536252585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_6
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 270
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d026a800120eb1510800000000000000
+      internalID: 1521055731515286029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_7
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 141
+        width: 135
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4772529bff5dcd420800000000000000
+      internalID: 2656233174541346676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_8
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 221
+        width: 71
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077cf4e428e03bc90800000000000000
+      internalID: -7155359430139197584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_9
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 244
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e80cf366891e4790800000000000000
+      internalID: -7544064260805228315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_10
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 244
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ca851b493efb6850800000000000000
+      internalID: 6371465619871992514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_11
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 64
+        width: 156
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5ed437a6a7f9930800000000000000
+      internalID: 4152171979078493646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_12
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 101
+        width: 124
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336a77dfff5d0e050800000000000000
+      internalID: 5827893213263275571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_13
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 41
+        width: 94
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a60cb8e1d9c49a60800000000000000
+      internalID: 7679985167963522721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_14
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 102
+        width: 124
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca732689b02774b00800000000000000
+      internalID: 812743651890444204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaos Sigil_15
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 64
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13eac173d36728490800000000000000
+      internalID: -7745498403834122703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Chaos Sigil_0: -4872232557381416791
+      Chaos Sigil_1: 3899273371089374103
+      Chaos Sigil_10: 6371465619871992514
+      Chaos Sigil_11: 4152171979078493646
+      Chaos Sigil_12: 5827893213263275571
+      Chaos Sigil_13: 7679985167963522721
+      Chaos Sigil_14: 812743651890444204
+      Chaos Sigil_15: -7745498403834122703
+      Chaos Sigil_2: -2041782730781092171
+      Chaos Sigil_3: 577921192637491902
+      Chaos Sigil_4: -2597559109785213167
+      Chaos Sigil_5: -4709316265536252585
+      Chaos Sigil_6: 1521055731515286029
+      Chaos Sigil_7: 2656233174541346676
+      Chaos Sigil_8: -7155359430139197584
+      Chaos Sigil_9: -7544064260805228315
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
