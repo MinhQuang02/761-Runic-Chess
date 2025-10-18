@@ -12758,7 +12758,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 644122525}
   - {fileID: 1294147497}
   - {fileID: 1356382129}
   - {fileID: 1505413802}
@@ -32391,7 +32390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 593384193}
   m_Layer: 0
-  m_Name: PlayerGuide
+  m_Name: Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34965,15 +34964,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644122524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.008999445}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 254051141}
+  m_Father: {fileID: 1294147497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 179.18896, y: -4.6742554}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &644122526
@@ -49259,7 +49258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880825581}
   m_Layer: 0
-  m_Name: ToggleButton
+  m_Name: Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63331,7 +63330,7 @@ GameObject:
   - component: {fileID: 1105323280}
   - component: {fileID: 1105323279}
   m_Layer: 0
-  m_Name: Attributions & Legal
+  m_Name: Attributions&Legal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74277,6 +74276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 644122525}
   - {fileID: 1660740217}
   - {fileID: 743661703}
   m_Father: {fileID: 254051141}
@@ -88489,7 +88489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1505413802}
   m_Layer: 0
-  m_Name: ControlPanel
+  m_Name: SideBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88525,7 +88525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1506849571}
   m_Layer: 0
-  m_Name: BattlefieldInfo
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96539,7 +96539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1660740217}
   m_Layer: 0
-  m_Name: CellMap
+  m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
