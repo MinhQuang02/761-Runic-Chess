@@ -87,7 +87,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MapRender_0: 8189912147280138477
+      MapRender_1: -4520110486765286242
+      MapRender_2: 4376047441084531868
+      MapRender_3: 3496062590365751657
+      MapRender_4: 4657060842482825531
+      MapRender_5: -8569498037777260335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
