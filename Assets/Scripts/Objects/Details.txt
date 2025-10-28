@@ -1,1 +1,0 @@
-Folder này chứa các object đầu vào để thay đổi dữ liệu trạng thái
