@@ -1,30 +1,27 @@
 ﻿using UnityEngine;
 using Data.Core;
 using TMPro;
+using UI.Movement;
+using UI.Render;
 
 namespace Objects.MainMenu
 {
     public class RenameButton : MonoBehaviour
     {
         public int buttonIndex;
-        public TextMeshProUGUI[] sessionName = new TextMeshProUGUI [3];
+        public MenuMovement setName;
 
-        public void clickRenameButton()
+        public void ClickRenameButton()
         {
             MainData.currentPlayerSession = buttonIndex;
 
             // Đổi màu chữ của các chữ trở lại màu mặc định và màu của chữ của phiên chơi hiện tại thành màu đặc biệt
-            for (int i = 0; i < 3; i++)
+            MainMenuRender.ChangeNameTextColor(buttonIndex);
+
+            // Kiểm tra xem có tên phiên chơi không, nếu không có thì mở menu đặt tên
+            if (MainData.nameSessions[buttonIndex] == "null")
             {
-                if (i == MainData.currentPlayerSession)
-                {
-                    // Màu xanh đậm đặc biệt
-                    sessionName[i].color = new Color32(87, 88, 95, 200);
-                }
-                else
-                {
-                    sessionName[i].color = new Color32(223, 228, 246, 255); // Màu trắng mặc định
-                }
+                setName.MoveToScreen();
             }
         }
     }
