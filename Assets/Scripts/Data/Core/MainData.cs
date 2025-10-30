@@ -16,7 +16,7 @@ namespace Data.Core
 
         // Dữ liệu ánh xạ với từng phiên chơi của người chơi
         public static string[] nameSessions = new string[3] { "null", "null", "null" };
-        public static bool[] isNewGame = new bool[3] { false, false, false };
+        public static bool[] isContinue = new bool[3] { false, false, false };
         public static bool[] isMapOrBattlefield = new bool[3] { false, false, false };
         public static bool[] isStartPrep = new bool[3] {false, false, false };
 
@@ -48,8 +48,8 @@ namespace Data.Core
                 string sessionsData = PlayerPrefs.GetString("sessions_" + i, "null-0-0-0");
                 string[] sessionsParts = sessionsData.Split('-');
 
-                nameSessions[i] = sessionsParts[0];                
-                isNewGame[i] = (sessionsParts[1] == "1");              
+                nameSessions[i] = sessionsParts[0];
+                isContinue[i] = (sessionsParts[1] == "1");              
                 isMapOrBattlefield[i] = (sessionsParts[2] == "1");   
                 isStartPrep[i] = (sessionsParts[3] == "1");
 
@@ -116,7 +116,7 @@ namespace Data.Core
             {
                 // Ghi dữ liệu phiên chơi của người chơi i
                 string sessionsData = nameSessions[i] + "-" +
-                                      (isNewGame[i] ? "1" : "0") + "-" +
+                                      (isContinue[i] ? "1" : "0") + "-" +
                                       (isMapOrBattlefield[i] ? "1" : "0") + "-" +
                                       (isStartPrep[i] ? "1" : "0");
                 PlayerPrefs.SetString("sessions_" + i, sessionsData);
@@ -152,6 +152,58 @@ namespace Data.Core
                 PlayerPrefs.SetString("settings_" + i, settingData);
             }
 
+            PlayerPrefs.Save();
+        }
+
+        // Hàm ghi dữ liệu người chơi hiện tại vào PlayerPrefs
+        public static void WriteSessionData()
+        {
+            // Ghi dữ liệu phiên chơi của người chơi i
+            string sessionsData = nameSessions[currentPlayerSession] + "-" +
+                                  (isContinue[currentPlayerSession] ? "1" : "0") + "-" +
+                                  (isMapOrBattlefield[currentPlayerSession] ? "1" : "0") + "-" +
+                                  (isStartPrep[currentPlayerSession] ? "1" : "0");
+            PlayerPrefs.SetString("sessions_" + currentPlayerSession, sessionsData);
+            PlayerPrefs.Save();
+        }
+
+        // Hàm ghi dữ liệu reccord của người chơi hiện tại vào PlayerPrefs
+        public static void WriteReccordData()
+        {
+            // Ghi dữ liệu reccord của người chơi i
+            string reccordData = "";
+            for (int j = 0; j < 10; j++)
+            {
+                PlayerReccord reccord = playerReccords[currentPlayerSession][j];
+                string recordPart = "[";
+                for (int k = 0; k < 16; k++)
+                {
+                    recordPart += (reccord.flags[k] ? "1" : "0") + "|";
+                }
+                recordPart += reccord.penalty.ToString() + "]";
+                reccordData += recordPart;
+                if (j < 9)
+                {
+                    reccordData += "-";
+                }
+            }
+            PlayerPrefs.SetString("reccords_" + currentPlayerSession, reccordData);
+            PlayerPrefs.Save();
+        }
+
+        // Hàm ghi dữ liệu setting của người chơi hiện tại vào PlayerPrefs
+        public static void WriteSettingData()
+        {
+            // Ghi dữ liệu setting của người chơi i
+            PlayerSetting setting = playerSettings[currentPlayerSession];
+            string settingData = (setting.displayMode ? "1" : "0") + "-" +
+                                 setting.resolution.ToString() + "-" +
+                                 (setting.vsync ? "1" : "0") + "-" +
+                                 setting.mainVolume.ToString() + "-" +
+                                 setting.musicVolume.ToString() + "-" +
+                                 setting.clickSound.ToString() + "-" +
+                                 setting.hoverSound.ToString();
+            PlayerPrefs.SetString("settings_" + currentPlayerSession, settingData);
             PlayerPrefs.Save();
         }
     }
