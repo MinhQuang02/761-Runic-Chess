@@ -22,7 +22,7 @@ namespace Core.MainMenu
 
                 MainData.WriteSessionData();
                 renameModal.MoveOffScreen();
-                MainMenuRender.ChangeDisplayName(MainData.nameSessions);
+                MainMenuRender.ChangeDisplayName();
 
                 // Xóa nội dung trong ô nhập liệu sau khi đổi tên
                 nameField.text = "";

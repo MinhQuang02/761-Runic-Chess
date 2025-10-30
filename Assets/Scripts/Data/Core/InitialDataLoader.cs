@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UI.Movement;
 using UI.Render;
 
@@ -8,20 +8,15 @@ namespace Data.Core
     {
         public MenuMovement mainMenu;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        // Cập nhập lần đầu để nạp data khi game chạy
         void Awake()
         {
             mainMenu.MoveToScreen();
             MainData.ReadMainData();
             MainMenuRender.Initialize();
-            MainMenuRender.ChangeDisplayName(MainData.nameSessions);
+            MainMenuRender.ChangeDisplayName();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }
 
