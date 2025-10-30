@@ -7,22 +7,52 @@ namespace UI.Render
 {
     public static class MainMenuRender
     {
-        public static TextMeshProUGUI[] sessionNames = new TextMeshProUGUI[3];
+        /*
+         * ===================================================
+         * Biến mô tả về tên của các phiên chơi để cập nhập
+         * ===================================================
+        */
+        public static TextMeshProUGUI[] sessionNames = new TextMeshProUGUI[3];
+
+        /*
+         * ===================================================
+         * Các biến mô tả về các đối tượng trong Record Modal
+         * ===================================================
+        */
         public static GameObject[] records = new GameObject[10];
 
+        // Các biến hiển thị các component trong một object của record
         public static TextMeshProUGUI[] flagCount = new TextMeshProUGUI[10];
+        public static TextMeshProUGUI[] penaltyRecords = new TextMeshProUGUI[10];
+
         public static RawImage[][] flagRecords = new RawImage[10][] { new RawImage[16], new RawImage[16], 
                                                                     new RawImage[16], new RawImage[16], 
                                                                     new RawImage[16], new RawImage[16], 
                                                                     new RawImage[16], new RawImage[16], 
                                                                     new RawImage[16], new RawImage[16] };
 
-        public static TextMeshProUGUI[] penaltyRecords = new TextMeshProUGUI[10];
+        // Tên của các lá cờ
+        private static string[] flagNames = new string[16]
+        {
+            "Aether", "Zenith", "Terra", "Zephyr",
+            "Nimbus", "Bolt", "Glacier", "Abyss",
+            "Resonance", "Aion", "Chrono", "Selene",
+            "Solstice", "Grimoire", "Harmonia", "Yggdrasil"
+        };
+
+        // Ảnh của các lá cờ được nhập từ Resources
+        public static Texture nullFlag = null;
+        public static Texture[] allFlags = new Texture[16];
+
 
 
         public static void Initialize()
         {
-            // Khởi tạo các đối tượng TextMeshProUGUI nếu chưa được khởi tạo
+            /*
+             * ===================================================
+             * Khởi tạo các đối tượng TextMeshProUGUI nếu chưa được khởi tạo
+             * ===================================================
+            */
             if (sessionNames[0] == null)
             {
                 for (int i = 0; i < 3; i++)
@@ -84,6 +114,16 @@ namespace UI.Render
                     penaltyRecords[i] = penaltyRecordObject.GetComponent<TextMeshProUGUI>();
                 }
             }
+
+            // Đọc các lá cờ từ Resources nếu chưa được khởi tạo
+            if (allFlags[0] == null)
+            {
+                for (int i = 0; i < 16; i++)
+                {
+                    allFlags[i] = Resources.Load<Texture>($"Textures/Flag/RecordFlag/{flagNames[i]}");
+                }
+                nullFlag = Resources.Load<Texture>("Textures/Flag/RecordFlag/_Null");
+            }
         }
 
         /*
@@ -144,10 +184,28 @@ namespace UI.Render
 
                 records[i].SetActive(true);
 
+                // Chỉnh sửa số cờ đã thu thập
+                string countText = flagCount[i].text;
+                string parts = countText.Split(':')[0];
+                flagCount[i].text = parts + ": " + MainData.playerReccords[MainData.currentPlayerSession][i].numberOfFlags.ToString();
+
+                // Chỉnh sửa ảnh cụ thể từng lá cờ
                 for (int j = 0; j < 16; j++)
                 {
-
+                    if (MainData.playerReccords[MainData.currentPlayerSession][i].flags[j] == true)
+                    {             
+                        flagRecords[i][j].texture = allFlags[j];
+                    }
+                    else
+                    {
+                        flagRecords[i][j].texture = nullFlag;
+                    }
                 }
+
+                // Chỉnh sửa điểm phạt
+                string penaltyText = penaltyRecords[i].text;
+                string penaltyParts = penaltyText.Split(':')[0];
+                penaltyRecords[i].text = penaltyParts + ": " + MainData.playerReccords[MainData.currentPlayerSession][i].penalty.ToString();
             }
         }
     }
