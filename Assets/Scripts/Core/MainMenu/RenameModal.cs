@@ -8,8 +8,23 @@ namespace Core.MainMenu
 {
     public class RenameModal : MonoBehaviour
     {
+        private static GameObject Instance;
         public TMP_InputField nameField;
         public MenuMovement renameModal;
+
+        public void Awake()
+        {
+            // Singleton pattern
+            if (Instance == null)
+            {
+                Instance = this.gameObject;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
         public void ConfirmRename()
         {
             if (!string.IsNullOrEmpty(nameField.text))

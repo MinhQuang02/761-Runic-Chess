@@ -12,7 +12,7 @@ namespace Data.Core
 
         // Dữ liệu mặc định của người chơi (phiên chơi bắt đầu từ -1)
         public static int currentPlayerSession = -1;
-        public static PlayerSetting defaultPlayerSetting = new PlayerSetting();
+        public static PlayerSetting defaultPlayerSetting = new PlayerSetting(0);
 
         // Dữ liệu ánh xạ với từng phiên chơi của người chơi
         public static string[] nameSessions = new string[3] { "null", "null", "null" };

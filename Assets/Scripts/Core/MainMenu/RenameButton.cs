@@ -7,9 +7,24 @@ namespace Core.MainMenu
 {
     public class RenameButton : MonoBehaviour
     {
+        private static GameObject Instance;
+
         public MenuMovement setName;
         public OptionMovement continueOption;
         public OptionMovement newGameOption;
+
+        public void Awake()
+        {
+            // Singleton pattern
+            if (Instance == null)
+            {
+                Instance = this.gameObject;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+        }
 
         public void ClickRenameButton(int buttonIndex)
         {
@@ -37,15 +52,6 @@ namespace Core.MainMenu
             }
             else
             {
-                // Test thử tính năng trên modal record
-                MainData.playerReccords[MainData.currentPlayerSession][0].numberOfFlags = 4;
-                MainData.playerReccords[MainData.currentPlayerSession][0].penalty = 100;
-
-                MainData.playerReccords[MainData.currentPlayerSession][0].flags[0] = true;
-                MainData.playerReccords[MainData.currentPlayerSession][0].flags[1] = true;
-                MainData.playerReccords[MainData.currentPlayerSession][0].flags[2] = true;
-                MainData.playerReccords[MainData.currentPlayerSession][0].flags[4] = true;
-
                 MainMenuRender.RenderRecordModal();
             }
         }

@@ -41,10 +41,28 @@ namespace UI.Render
         };
 
         // Ảnh của các lá cờ được nhập từ Resources
-        public static Texture nullFlag = null;
+        public static Texture nullFlag;
         public static Texture[] allFlags = new Texture[16];
 
 
+        /*
+         * ===================================================
+         * Các thông tin cần Render ở Settings Modal
+         * ===================================================
+        */
+        public static RawImage displayModeImage;
+        public static RawImage resolutionImage;
+        public static RawImage vsyncImage;
+
+        public static TextMeshProUGUI mainVolumeText;
+        public static TextMeshProUGUI musicVolumeText;
+        public static TextMeshProUGUI clickSoundText;
+        public static TextMeshProUGUI hoverSoundText;
+
+        // Các Textures cho Settings Modal sẽ được load từ Resources khi khởi tạo
+        public static Texture[] displayModeTextrues = new Texture[2];
+        public static Texture[] resolutionTextures = new Texture[4];
+        public static Texture[] vsyncTextures = new Texture[2];
 
         public static void Initialize()
         {
@@ -123,6 +141,68 @@ namespace UI.Render
                     allFlags[i] = Resources.Load<Texture>($"Textures/Flag/RecordFlag/{flagNames[i]}");
                 }
                 nullFlag = Resources.Load<Texture>("Textures/Flag/RecordFlag/_Null");
+            }
+
+            /*
+             * ===================================================
+             * Hàm khởi tạo các đối tượng để render Settings Modal
+             * ===================================================
+            */
+            if (displayModeImage == null)
+            {
+                string displayModePath = "Canvas/MainMenu/Modal/Settings/ScrollView/Viewport/Content/DisplayMode/Display";
+                GameObject displayModeObject = GameObject.Find(displayModePath);
+                displayModeImage = displayModeObject.GetComponent<RawImage>();
+            }
+            if (resolutionImage == null)
+            {
+                string resolutionPath = "Canvas/MainMenu/Modal/Settings/ScrollView/Viewport/Content/Resolution/Display";
+                GameObject resolutionObject = GameObject.Find(resolutionPath);
+                resolutionImage = resolutionObject.GetComponent<RawImage>();
+            }
+            if (vsyncImage == null)
+            {
+                string vsyncPath = "Canvas/MainMenu/Modal/Settings/ScrollView/Viewport/Content/Vsync/Display";
+                GameObject vsyncObject = GameObject.Find(vsyncPath);
+                vsyncImage = vsyncObject.GetComponent<RawImage>();
+            }
+
+            if (mainVolumeText == null)
+            {
+                string mainVolumePath = "Canvas/MainMenu/Modal/Settings/ScrollView/Viewport/Content/MainVolume/Display";
+                GameObject mainVolumeObject = GameObject.Find(mainVolumePath);
+                mainVolumeText = mainVolumeObject.GetComponent<TextMeshProUGUI>();
+            }
+            if (musicVolumeText == null)
+            {
+                string musicVolumePath = "Canvas/MainMenu/Modal/Settings/ScrollView/Viewport/Content/MusicVolume/Display";
+                GameObject musicVolumeObject = GameObject.Find(musicVolumePath);
+                musicVolumeText = musicVolumeObject.GetComponent<TextMeshProUGUI>();
+            }
+            if (clickSoundText == null)
+            {
+                string clickSoundPath = "Canvas/MainMenu/Modal/Settings/ScrollView/Viewport/Content/ClickSound/Display";
+                GameObject clickSoundObject = GameObject.Find(clickSoundPath);
+                clickSoundText = clickSoundObject.GetComponent<TextMeshProUGUI>();
+            }
+            if (hoverSoundText == null)
+            {
+                string hoverSoundPath = "Canvas/MainMenu/Modal/Settings/ScrollView/Viewport/Content/HoverSound/Display";
+                GameObject hoverSoundObject = GameObject.Find(hoverSoundPath);
+                hoverSoundText = hoverSoundObject.GetComponent<TextMeshProUGUI>();
+            }
+
+            // Đọc các textures từ Resources nếu chưa được khởi tạo
+            if (displayModeTextrues[0] == null)
+            {
+                displayModeTextrues[0] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/DisplayMode/Windowed");
+                displayModeTextrues[1] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/DisplayMode/Fullscreen");
+                resolutionTextures[0] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/Resolution/Low");
+                resolutionTextures[1] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/Resolution/Medium");
+                resolutionTextures[2] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/Resolution/High");
+                resolutionTextures[3] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/Resolution/Ultra");
+                vsyncTextures[0] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/Vsync/Off");
+                vsyncTextures[1] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/Vsync/On");
             }
         }
 
@@ -207,6 +287,23 @@ namespace UI.Render
                 string penaltyParts = penaltyText.Split(':')[0];
                 penaltyRecords[i].text = penaltyParts + ": " + MainData.playerReccords[MainData.currentPlayerSession][i].penalty.ToString();
             }
+        }
+
+        /*
+         * ===================================================
+         * Hàm render Settings Modal
+         * ===================================================
+        */
+        public static void RenderSettingsModal(int displayModeIndex, int resolutionIndex, int vsyncIndex, float mainVolumeIndex, float musicVolumeIndex, float clickSoundIndex, float hoverSoundIndex)
+        {
+            // Cập nhập lại nội dung hiển thị
+            displayModeImage.texture = displayModeTextrues[displayModeIndex];
+            resolutionImage.texture = resolutionTextures[resolutionIndex];
+            vsyncImage.texture = vsyncTextures[vsyncIndex];
+            mainVolumeText.text = Mathf.RoundToInt(mainVolumeIndex * 100).ToString() + "%";
+            musicVolumeText.text = Mathf.RoundToInt(musicVolumeIndex * 100).ToString() + "%";
+            clickSoundText.text = Mathf.RoundToInt(clickSoundIndex * 100).ToString() + "%";
+            hoverSoundText.text = Mathf.RoundToInt(hoverSoundIndex * 100).ToString() + "%";
         }
     }
 }
