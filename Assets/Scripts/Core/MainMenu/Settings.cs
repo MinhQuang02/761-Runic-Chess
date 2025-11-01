@@ -267,8 +267,13 @@ namespace Core.MainMenu
             {
                 if (MainData.defaultPlayerSetting.mainVolume > 4)
                 {   
+                    Debug.Log(MainData.defaultPlayerSetting.mainVolume);
                     MainData.defaultPlayerSetting.mainVolume -= 5;
+                    Debug.Log(MainData.defaultPlayerSetting.mainVolume);
+                    Debug.Log(MainData.defaultPlayerSetting.mainVolume);
                     mainVolumeScrollbar.value = MainData.defaultPlayerSetting.mainVolume / 100f;
+                    Debug.Log(MainData.defaultPlayerSetting.mainVolume);
+                    Debug.Log(MainData.defaultPlayerSetting.mainVolume);
                 }
             }
             else
@@ -451,11 +456,11 @@ namespace Core.MainMenu
         {
             if (MainData.currentPlayerSession == -1)
             {
-                MainData.defaultPlayerSetting.mainVolume = (int)(index * 100);
+                MainData.defaultPlayerSetting.mainVolume = Mathf.RoundToInt(index * 100f);
             }
             else
             {
-                MainData.playerSettings[MainData.currentPlayerSession].mainVolume = (int)(index * 100);
+                MainData.playerSettings[MainData.currentPlayerSession].mainVolume = Mathf.RoundToInt(index * 100f);
             }
             GameSounds.UpdateVolumes();
             MainMenuRender.RenderSettingsModal();
@@ -466,11 +471,11 @@ namespace Core.MainMenu
         {
             if (MainData.currentPlayerSession == -1)
             {
-                MainData.defaultPlayerSetting.musicVolume = (int)(index * 100);
+                MainData.defaultPlayerSetting.musicVolume = Mathf.RoundToInt(index * 100f);
             }
             else
             {
-                MainData.playerSettings[MainData.currentPlayerSession].musicVolume = (int)(index * 100);
+                MainData.playerSettings[MainData.currentPlayerSession].musicVolume = Mathf.RoundToInt(index * 100f);
             }
             GameSounds.UpdateVolumes();
             MainMenuRender.RenderSettingsModal();
@@ -481,11 +486,11 @@ namespace Core.MainMenu
         {
             if (MainData.currentPlayerSession == -1)
             {
-                MainData.defaultPlayerSetting.clickSound = (int)(index * 100);
+                MainData.defaultPlayerSetting.clickSound = Mathf.RoundToInt(index * 100f);
             }
             else
             {
-                MainData.playerSettings[MainData.currentPlayerSession].clickSound = (int)(index * 100);
+                MainData.playerSettings[MainData.currentPlayerSession].clickSound = Mathf.RoundToInt(index * 100f);
             }
             GameSounds.UpdateVolumes();
             MainMenuRender.RenderSettingsModal();
@@ -496,11 +501,11 @@ namespace Core.MainMenu
         {
             if (MainData.currentPlayerSession == -1)
             {
-                MainData.defaultPlayerSetting.hoverSound = (int)(index * 100);
+                MainData.defaultPlayerSetting.hoverSound = Mathf.RoundToInt(index * 100f);
             }
             else
             {
-                MainData.playerSettings[MainData.currentPlayerSession].hoverSound = (int)(index * 100);
+                MainData.playerSettings[MainData.currentPlayerSession].hoverSound = Mathf.RoundToInt(index * 100f);
             }
             GameSounds.UpdateVolumes();
             MainMenuRender.RenderSettingsModal();
