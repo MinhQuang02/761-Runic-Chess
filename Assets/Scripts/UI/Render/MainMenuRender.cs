@@ -2,6 +2,7 @@
 using UnityEngine;
 using Data.Core;
 using UnityEngine.UI;
+using System;
 
 namespace UI.Render
 {
@@ -9,29 +10,29 @@ namespace UI.Render
     {
         /*
          * ===================================================
-         * Biến mô tả về tên của các phiên chơi để cập nhập
+         * Variables for displaying session names in the main menu
          * ===================================================
         */
-        public static TextMeshProUGUI[] sessionNames = new TextMeshProUGUI[3];
+        private static TextMeshProUGUI[] sessionNames = new TextMeshProUGUI[3];
 
         /*
          * ===================================================
-         * Các biến mô tả về các đối tượng trong Record Modal
+         * Variables for rendering the Record Modal
          * ===================================================
         */
-        public static GameObject[] records = new GameObject[10];
+        private static GameObject[] records = new GameObject[10];
 
-        // Các biến hiển thị các component trong một object của record
-        public static TextMeshProUGUI[] flagCount = new TextMeshProUGUI[10];
-        public static TextMeshProUGUI[] penaltyRecords = new TextMeshProUGUI[10];
+        // Variables for displaying flag counts and penalty records
+        private static TextMeshProUGUI[] flagCount = new TextMeshProUGUI[10];
+        private static TextMeshProUGUI[] penaltyRecords = new TextMeshProUGUI[10];
 
-        public static RawImage[][] flagRecords = new RawImage[10][] { new RawImage[16], new RawImage[16], 
+        private static RawImage[][] flagRecords = new RawImage[10][] { new RawImage[16], new RawImage[16], 
                                                                     new RawImage[16], new RawImage[16], 
                                                                     new RawImage[16], new RawImage[16], 
                                                                     new RawImage[16], new RawImage[16], 
                                                                     new RawImage[16], new RawImage[16] };
 
-        // Tên của các lá cờ
+        // Names of the flags corresponding to their indices
         private static string[] flagNames = new string[16]
         {
             "Aether", "Zenith", "Terra", "Zephyr",
@@ -40,35 +41,35 @@ namespace UI.Render
             "Solstice", "Grimoire", "Harmonia", "Yggdrasil"
         };
 
-        // Ảnh của các lá cờ được nhập từ Resources
-        public static Texture nullFlag;
-        public static Texture[] allFlags = new Texture[16];
+        // References to all flag textures
+        private static Texture nullFlag;
+        private static Texture[] allFlags = new Texture[16];
 
 
         /*
          * ===================================================
-         * Các thông tin cần Render ở Settings Modal
+         * And variables for rendering the Settings Modal
          * ===================================================
         */
-        public static RawImage displayModeImage;
-        public static RawImage resolutionImage;
-        public static RawImage vsyncImage;
+        private static RawImage displayModeImage;
+        private static RawImage resolutionImage;
+        private static RawImage vsyncImage;
 
-        public static TextMeshProUGUI mainVolumeText;
-        public static TextMeshProUGUI musicVolumeText;
-        public static TextMeshProUGUI clickSoundText;
-        public static TextMeshProUGUI hoverSoundText;
+        private static TextMeshProUGUI mainVolumeText;
+        private static TextMeshProUGUI musicVolumeText;
+        private static TextMeshProUGUI clickSoundText;
+        private static TextMeshProUGUI hoverSoundText;
 
-        // Các Textures cho Settings Modal sẽ được load từ Resources khi khởi tạo
-        public static Texture[] displayModeTextrues = new Texture[2];
-        public static Texture[] resolutionTextures = new Texture[4];
-        public static Texture[] vsyncTextures = new Texture[2];
+        // Array of textures for different settings options
+        private static Texture[] displayModeTextrues = new Texture[2];
+        private static Texture[] resolutionTextures = new Texture[4];
+        private static Texture[] vsyncTextures = new Texture[2];
 
         public static void Initialize()
         {
             /*
              * ===================================================
-             * Khởi tạo các đối tượng TextMeshProUGUI nếu chưa được khởi tạo
+             * Initialize objects for displaying session names in the main menu
              * ===================================================
             */
             if (sessionNames[0] == null)
@@ -83,11 +84,11 @@ namespace UI.Render
 
             /*
              * ===================================================
-             * Hàm khởi tạo các đối tượng để render Record Modal
+             * Function to initialize objects for rendering the Record Modal
              * ===================================================
             */
 
-            // Khởi tạo các đối tượng record nếu chưa được khởi tạo
+            // Initialize record GameObjects if not already initialized
             if (records[0] == null)
             {
                 for (int i = 0; i < 10; i++)
@@ -97,7 +98,7 @@ namespace UI.Render
                 }
             }
 
-            // Khởi tạo các đối tượng TextMeshProUGUI để hiển thị số cờ nếu chưa được khởi tạo
+            // Initialize TextMeshProUGUI objects for displaying flag counts if not already initialized
             if (flagCount[0] == null)
             {
                 for (int i = 0; i < 10; i++)
@@ -108,7 +109,7 @@ namespace UI.Render
                 }
             }
 
-            // Khởi tạo các đối tượng RawImage nếu chưa được khởi tạo
+            // Initialize RawImage objects for displaying flag records if not already initialized
             if (flagRecords[0][0] == null)
             {
                 for (int i = 0; i < 10; i++)
@@ -122,7 +123,7 @@ namespace UI.Render
                 }
             }
 
-            // Khởi tạo các đối tượng TextMeshProUGUI để hiển thị điểm phạt nếu chưa được khởi tạo
+            // Initialize TextMeshProUGUI objects for displaying penalty records if not already initialized
             if (penaltyRecords[0] == null)
             {
                 for (int i = 0; i < 10; i++)
@@ -133,7 +134,7 @@ namespace UI.Render
                 }
             }
 
-            // Đọc các lá cờ từ Resources nếu chưa được khởi tạo
+            // Read flag textures from Resources if not already initialized
             if (allFlags[0] == null)
             {
                 for (int i = 0; i < 16; i++)
@@ -145,7 +146,7 @@ namespace UI.Render
 
             /*
              * ===================================================
-             * Hàm khởi tạo các đối tượng để render Settings Modal
+             * Function to initialize objects for rendering the Settings Modal
              * ===================================================
             */
             if (displayModeImage == null)
@@ -192,7 +193,7 @@ namespace UI.Render
                 hoverSoundText = hoverSoundObject.GetComponent<TextMeshProUGUI>();
             }
 
-            // Đọc các textures từ Resources nếu chưa được khởi tạo
+            // Read setting option textures from Resources if not already initialized
             if (displayModeTextrues[0] == null)
             {
                 displayModeTextrues[0] = Resources.Load<Texture>("Textures/UI/MainMenu/Modal/Settings/DisplayMode/Windowed");
@@ -208,14 +209,14 @@ namespace UI.Render
 
         /*
          * ===================================================
-         * Hàm render hiển thị tên phiên chơi với màu sắc đặc biệt kèm với thay đổi tên
+         * Function to change the color of session name texts
          * ===================================================
         */
-        public static void ChangeNameTextColor(int buttonIndex)
+        public static void ChangeNameTextColor()
         {
             for (int i = 0; i < 3; i++)
             {
-                if (i == buttonIndex)
+                if (i == MainData.currentPlayerSession)
                 {
                     sessionNames[i].color = new Color32(87, 88, 95, 200);
                 }
@@ -240,19 +241,19 @@ namespace UI.Render
 
         /*
          * ===================================================
-         * Hàm render Record Modal
+         * Function to render the Record Modal
          * ===================================================
         */
         public static void RenderRecordModal()
         {   
-            if (MainData.currentPlayerSession == -1)
-            {
-                return;
-            }
-
             for (int i = 0; i < 10; i++)
             {
                 records[i].SetActive(false);
+            }
+
+            if (MainData.currentPlayerSession == -1)
+            {
+                return;
             }
 
             for (int i = 0; i < 10; i++)
@@ -264,12 +265,12 @@ namespace UI.Render
 
                 records[i].SetActive(true);
 
-                // Chỉnh sửa số cờ đã thu thập
+                // Edit number of flags text
                 string countText = flagCount[i].text;
                 string parts = countText.Split(':')[0];
                 flagCount[i].text = parts + ": " + MainData.playerReccords[MainData.currentPlayerSession][i].numberOfFlags.ToString();
 
-                // Chỉnh sửa ảnh cụ thể từng lá cờ
+                // Edit flag images
                 for (int j = 0; j < 16; j++)
                 {
                     if (MainData.playerReccords[MainData.currentPlayerSession][i].flags[j] == true)
@@ -282,7 +283,7 @@ namespace UI.Render
                     }
                 }
 
-                // Chỉnh sửa điểm phạt
+                // Edit penalty record text
                 string penaltyText = penaltyRecords[i].text;
                 string penaltyParts = penaltyText.Split(':')[0];
                 penaltyRecords[i].text = penaltyParts + ": " + MainData.playerReccords[MainData.currentPlayerSession][i].penalty.ToString();
@@ -291,19 +292,32 @@ namespace UI.Render
 
         /*
          * ===================================================
-         * Hàm render Settings Modal
+         * Function to render the Settings Modal
          * ===================================================
         */
-        public static void RenderSettingsModal(int displayModeIndex, int resolutionIndex, int vsyncIndex, float mainVolumeIndex, float musicVolumeIndex, float clickSoundIndex, float hoverSoundIndex)
+        public static void RenderSettingsModal()
         {
-            // Cập nhập lại nội dung hiển thị
-            displayModeImage.texture = displayModeTextrues[displayModeIndex];
-            resolutionImage.texture = resolutionTextures[resolutionIndex];
-            vsyncImage.texture = vsyncTextures[vsyncIndex];
-            mainVolumeText.text = Mathf.RoundToInt(mainVolumeIndex * 100).ToString() + "%";
-            musicVolumeText.text = Mathf.RoundToInt(musicVolumeIndex * 100).ToString() + "%";
-            clickSoundText.text = Mathf.RoundToInt(clickSoundIndex * 100).ToString() + "%";
-            hoverSoundText.text = Mathf.RoundToInt(hoverSoundIndex * 100).ToString() + "%";
+            if (MainData.currentPlayerSession == -1)
+            {   
+                displayModeImage.texture = displayModeTextrues[Convert.ToInt32(MainData.defaultPlayerSetting.displayMode)];
+                resolutionImage.texture = resolutionTextures[MainData.defaultPlayerSetting.resolution];
+                vsyncImage.texture = vsyncTextures[Convert.ToInt32(MainData.defaultPlayerSetting.vsync)];
+                mainVolumeText.text = MainData.defaultPlayerSetting.mainVolume.ToString() + "%";
+                musicVolumeText.text = MainData.defaultPlayerSetting.musicVolume.ToString() + "%";
+                clickSoundText.text = MainData.defaultPlayerSetting.clickSound.ToString() + "%";
+                hoverSoundText.text = MainData.defaultPlayerSetting.hoverSound.ToString() + "%";
+            }
+            else
+            {
+                displayModeImage.texture = displayModeTextrues[Convert.ToInt32(MainData.playerSettings[MainData.currentPlayerSession].displayMode)];
+                resolutionImage.texture = resolutionTextures[MainData.playerSettings[MainData.currentPlayerSession].resolution];
+                vsyncImage.texture = vsyncTextures[Convert.ToInt32(MainData.playerSettings[MainData.currentPlayerSession].vsync)];
+                mainVolumeText.text = MainData.playerSettings[MainData.currentPlayerSession].mainVolume.ToString() + "%";
+                musicVolumeText.text = MainData.playerSettings[MainData.currentPlayerSession].musicVolume.ToString() + "%";
+                clickSoundText.text = MainData.playerSettings[MainData.currentPlayerSession].clickSound.ToString() + "%";
+                hoverSoundText.text = MainData.playerSettings[MainData.currentPlayerSession].hoverSound.ToString() + "%";
+                MainData.WriteSettingData();
+            }    
         }
     }
 }

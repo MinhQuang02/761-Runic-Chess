@@ -6,15 +6,15 @@ namespace Data.Core
     {
         /*
          * ===================================================
-         * Tổ chức dữ liệu người chơi
+         * Core of player data management
          * ===================================================
         */
 
-        // Dữ liệu mặc định của người chơi (phiên chơi bắt đầu từ -1)
+        // Player current session index and default player setting
         public static int currentPlayerSession = -1;
         public static PlayerSetting defaultPlayerSetting = new PlayerSetting(0);
 
-        // Dữ liệu ánh xạ với từng phiên chơi của người chơi
+        // Data arrays for 3 player sessions
         public static string[] nameSessions = new string[3] { "null", "null", "null" };
         public static bool[] isContinue = new bool[3] { false, false, false };
         public static bool[] isMapOrBattlefield = new bool[3] { false, false, false };
@@ -36,15 +36,15 @@ namespace Data.Core
 
         /*
          * ===================================================
-         * Hàm đọc dữ liệu người chơi từ PlayerPrefs
+         * Read data from PlayerPrefs into main data structures
          * ===================================================
         */
         public static void ReadMainData()
         {
-            // Đọc vào từ PlayerPrefs dữ liệu sessions_i có cấu trúc là null-0-0-0
+            // Read data for each of the 3 player sessions
             for (int i = 0; i < 3; i++)
             {
-                // Đọc dữ liệu phiên chơi của người chơi i
+                // Read session data for player i
                 string sessionsData = PlayerPrefs.GetString("sessions_" + i, "null-0-0-0");
                 string[] sessionsParts = sessionsData.Split('-');
 
@@ -53,7 +53,7 @@ namespace Data.Core
                 isMapOrBattlefield[i] = (sessionsParts[2] == "1");   
                 isStartPrep[i] = (sessionsParts[3] == "1");
 
-                // Đọc dữ liệu reccord của người chơi i
+                // Read reccord data for player i
                 string reccordData = PlayerPrefs.GetString("reccords_" + i, "[0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0]-" +
                                                                             "[0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0]-" +
                                                                             "[0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0]-" +
@@ -77,7 +77,7 @@ namespace Data.Core
                     {
                         record.flags[k] = (recordValues[k] == "1");
 
-                        // Đếm giá trị của numberOfFlags
+                        // Count number of flags set to true
                         if (record.flags[k] == true)
                         {
                             record.numberOfFlags++; 
@@ -88,7 +88,7 @@ namespace Data.Core
                     playerReccords[i][j] = record;
                 }
 
-                // Đọc dữ liệu setting của người chơi i
+                // Read setting data for player i
                 string settingData = PlayerPrefs.GetString("settings_" + i, "1-2-1-70-70-70-70");
                 string[] settingParts = settingData.Split('-');
 
@@ -107,21 +107,21 @@ namespace Data.Core
 
         /*
          * ===================================================
-         * Hàm ghi dữ liệu người chơi vào PlayerPrefs
+         * Write data from main data structures into PlayerPrefs
          * ===================================================
         */
         public static void WriteMainData()
         {
             for (int i = 0; i < 3; i++)
             {
-                // Ghi dữ liệu phiên chơi của người chơi i
+                // Write session data of player i
                 string sessionsData = nameSessions[i] + "-" +
                                       (isContinue[i] ? "1" : "0") + "-" +
                                       (isMapOrBattlefield[i] ? "1" : "0") + "-" +
                                       (isStartPrep[i] ? "1" : "0");
                 PlayerPrefs.SetString("sessions_" + i, sessionsData);
 
-                // Ghi dữ liệu reccord của người chơi i
+                // Write reccord data of player i
                 string reccordData = "";
                 for (int j = 0; j < 10; j++)
                 {
@@ -140,7 +140,7 @@ namespace Data.Core
                 }
                 PlayerPrefs.SetString("reccords_" + i, reccordData);
 
-                // Ghi dữ liệu setting của người chơi i
+                // Write setting data of player i
                 PlayerSetting setting = playerSettings[i];
                 string settingData = (setting.displayMode ? "1" : "0") + "-" +
                                      setting.resolution.ToString() + "-" +
@@ -155,10 +155,10 @@ namespace Data.Core
             PlayerPrefs.Save();
         }
 
-        // Hàm ghi dữ liệu người chơi hiện tại vào PlayerPrefs
+        // Write session data of the current player into PlayerPrefs
         public static void WriteSessionData()
         {
-            // Ghi dữ liệu phiên chơi của người chơi i
+            // Write session data of the current player
             string sessionsData = nameSessions[currentPlayerSession] + "-" +
                                   (isContinue[currentPlayerSession] ? "1" : "0") + "-" +
                                   (isMapOrBattlefield[currentPlayerSession] ? "1" : "0") + "-" +
@@ -167,10 +167,10 @@ namespace Data.Core
             PlayerPrefs.Save();
         }
 
-        // Hàm ghi dữ liệu reccord của người chơi hiện tại vào PlayerPrefs
+        // Write reccord data of the current player into PlayerPrefs
         public static void WriteReccordData()
         {
-            // Ghi dữ liệu reccord của người chơi i
+            // Write reccord data of the current player
             string reccordData = "";
             for (int j = 0; j < 10; j++)
             {
@@ -191,10 +191,10 @@ namespace Data.Core
             PlayerPrefs.Save();
         }
 
-        // Hàm ghi dữ liệu setting của người chơi hiện tại vào PlayerPrefs
+        // Write setting data of the current player into PlayerPrefs
         public static void WriteSettingData()
         {
-            // Ghi dữ liệu setting của người chơi i
+            // Write setting data of the current player
             PlayerSetting setting = playerSettings[currentPlayerSession];
             string settingData = (setting.displayMode ? "1" : "0") + "-" +
                                  setting.resolution.ToString() + "-" +
@@ -209,7 +209,7 @@ namespace Data.Core
     }
 
     /// <summary>
-    /// Cấu trúc dữ liệu lưu trữ thành tích của người chơi
+    /// Data structure to store player's reccord
     /// </summary>
     public struct PlayerReccord
     {
@@ -226,7 +226,7 @@ namespace Data.Core
     }
 
     /// <summary>
-    /// Cấu trúc dữ liệu lưu trữ cài đặt của người chơi
+    /// Data structure to store player's setting
     /// </summary>
     public struct PlayerSetting
     {

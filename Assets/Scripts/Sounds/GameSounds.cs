@@ -1,31 +1,42 @@
 using UnityEngine;
+using Data.Core;
 
 namespace Sounds
 {
     public static class GameSounds
     {
+        /*
+         * ===================================================
+         * Declarations all audio sources used in the game
+         * ===================================================
+        */
         private static AudioSource titleTheme;
         private static AudioSource themeSong;
         private static AudioSource bgm;
-
         private static AudioSource hoverSound;
         private static AudioSource clickSound;
 
-        public static float mainVolumeIndex = 0.7f;
-        public static float musicVolumeIndex = 0.7f;
-        public static float clickSoundIndex = 0.7f;
-        public static float hoverSoundIndex = 0.7f;
-
+        /*
+         * ===================================================
+         * Initialize all audio sources used in the game
+         * ===================================================
+        */
         public static void Initialize()
         {
             titleTheme = GameObject.Find("Audios/title-theme").GetComponent<AudioSource>();
             themeSong = GameObject.Find("Audios/theme-song").GetComponent<AudioSource>();
             bgm = GameObject.Find("Audios/bgm").GetComponent<AudioSource>();
-
             hoverSound = GameObject.Find("Audios/hover-sound").GetComponent<AudioSource>();
             clickSound = GameObject.Find("Audios/click-sound").GetComponent<AudioSource>();
         }
 
+        /*
+         * ===================================================
+         * Play and stop functions for all audio sources used in the game
+         * ===================================================
+        */
+
+        // Title Theme
         public static void PlayTitleTheme()
         {
             titleTheme.Play();
@@ -36,6 +47,7 @@ namespace Sounds
             titleTheme.Stop();
         }
 
+        // Theme Song
         public static void PlayThemeSong()
         {
             themeSong.Play();
@@ -46,6 +58,7 @@ namespace Sounds
             themeSong.Stop();
         }
 
+        // BGM
         public static void PlayBGM()
         {
             bgm.Play();
@@ -56,23 +69,47 @@ namespace Sounds
             bgm.Stop();
         }
 
-        public static void PlayHoverSound()
-        {
-            hoverSound.Play();
-        }
-
+        // Click Sound
         public static void PlayClickSound()
         {
             clickSound.Play();
         }
 
-        public static void UpdateVolumes()
+        // Hover Sound
+        public static void PlayHoverSound()
         {
-            titleTheme.volume = mainVolumeIndex * musicVolumeIndex;
-            themeSong.volume = mainVolumeIndex * musicVolumeIndex;
-            bgm.volume = mainVolumeIndex * musicVolumeIndex;
-            hoverSound.volume = mainVolumeIndex * hoverSoundIndex;
-            clickSound.volume = mainVolumeIndex * clickSoundIndex;
+            hoverSound.Play();
+        }
+
+        // Update all volumes based on player settings
+        public static void UpdateVolumes()
+        {   
+            if (MainData.currentPlayerSession == -1)
+            {
+                titleTheme.volume = (MainData.defaultPlayerSetting.mainVolume *
+                                    MainData.defaultPlayerSetting.musicVolume) / 10000f;
+                themeSong.volume = (MainData.defaultPlayerSetting.mainVolume *
+                                    MainData.defaultPlayerSetting.musicVolume) / 10000f;
+                bgm.volume = (MainData.defaultPlayerSetting.mainVolume *
+                                    MainData.defaultPlayerSetting.musicVolume) / 10000f;
+                hoverSound.volume = (MainData.defaultPlayerSetting.mainVolume *
+                                    MainData.defaultPlayerSetting.clickSound) / 10000f;
+                clickSound.volume = (MainData.defaultPlayerSetting.mainVolume *
+                                    MainData.defaultPlayerSetting.hoverSound) / 10000f;
+            }
+            else
+            {
+                titleTheme.volume = (MainData.playerSettings[MainData.currentPlayerSession].mainVolume *
+                                    MainData.playerSettings[MainData.currentPlayerSession].musicVolume) / 10000f;
+                themeSong.volume = (MainData.playerSettings[MainData.currentPlayerSession].mainVolume *
+                                    MainData.playerSettings[MainData.currentPlayerSession].musicVolume) / 10000f;
+                bgm.volume = (MainData.playerSettings[MainData.currentPlayerSession].mainVolume *
+                                    MainData.playerSettings[MainData.currentPlayerSession].musicVolume) / 10000f;
+                hoverSound.volume = (MainData.playerSettings[MainData.currentPlayerSession].mainVolume *
+                                    MainData.playerSettings[MainData.currentPlayerSession].clickSound) / 10000f;
+                clickSound.volume = (MainData.playerSettings[MainData.currentPlayerSession].mainVolume *
+                                    MainData.playerSettings[MainData.currentPlayerSession].hoverSound) / 10000f;
+            }
         }
     }
 }

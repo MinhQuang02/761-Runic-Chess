@@ -3,20 +3,20 @@ guid: dd79d5fefd9bd114ca3c0cd41b701998
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5048696904686460206
-    second: Group 88 (1)_0
+      213: -1955448553306655712
+    second: Background_0
   - first:
-      213: -6458592814014502913
-    second: Group 88 (1)_1
+      213: 7014286043975846214
+    second: Background_1
   - first:
-      213: -2182921239276830988
-    second: Group 88 (1)_2
+      213: -9078219959484023005
+    second: Background_2
   - first:
-      213: -8144145535922810957
-    second: Group 88 (1)_3
+      213: -4817409605821441833
+    second: Background_3
   - first:
-      213: -3443235530826559382
-    second: Group 88 (1)_4
+      213: -2146368423942107817
+    second: Background_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,10 +125,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Group 88 (1)_0
+      name: Background_0
       rect:
         serializedVersion: 2
-        x: 66
+        x: 57
         y: 24
         width: 139
         height: 65
@@ -140,19 +140,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d2ac811aec6fe9b0800000000000000
-      internalID: -5048696904686460206
+      spriteID: 024fa93b6e9dcd4e0800000000000000
+      internalID: -1955448553306655712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Group 88 (1)_1
+      name: Background_1
       rect:
         serializedVersion: 2
-        x: 202
+        x: 194
         y: 23
-        width: 124
+        width: 120
         height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -162,63 +162,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff766c30e087e56a0800000000000000
-      internalID: -6458592814014502913
+      spriteID: 64909246effb75160800000000000000
+      internalID: 7014286043975846214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Group 88 (1)_2
+      name: Background_2
       rect:
         serializedVersion: 2
-        x: 322
+        x: 331
         y: 23
-        width: 50
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4febf30d2b4b4b1e0800000000000000
-      internalID: -2182921239276830988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Group 88 (1)_3
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 24
-        width: 66
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3bfcc3cd8ce2afe80800000000000000
-      internalID: -8144145535922810957
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Group 88 (1)_4
-      rect:
-        serializedVersion: 2
-        x: 439
-        y: 23
-        width: 185
+        width: 51
         height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -228,8 +184,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a60541b178b2730d0800000000000000
-      internalID: -3443235530826559382
+      spriteID: 32ff71a9b0fa30280800000000000000
+      internalID: -9078219959484023005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background_3
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 24
+        width: 67
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d8557bbc7f152db0800000000000000
+      internalID: -4817409605821441833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background_4
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 23
+        width: 188
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75dc0d55a419632e0800000000000000
+      internalID: -2146368423942107817
       vertices: []
       indices: 
       edges: []
@@ -248,11 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Group 88 (1)_0: -5048696904686460206
-      Group 88 (1)_1: -6458592814014502913
-      Group 88 (1)_2: -2182921239276830988
-      Group 88 (1)_3: -8144145535922810957
-      Group 88 (1)_4: -3443235530826559382
+      Background_0: -1955448553306655712
+      Background_1: 7014286043975846214
+      Background_2: -9078219959484023005
+      Background_3: -4817409605821441833
+      Background_4: -2146368423942107817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

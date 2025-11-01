@@ -3,10 +3,20 @@ using UnityEngine;
 namespace UI.Movement
 {
     public class MenuMovement : MonoBehaviour
-    {   
-        public int xPosition;
-        public int yPosition;
+    {
+        /*
+         * ===================================================
+         * Declarations for menu position coordinates when off-screen
+         * ===================================================
+        */
+        [SerializeField] private int xPosition;
+        [SerializeField] private int yPosition;
 
+        /*
+         * ===================================================
+         * Functions to move the menu on-screen and off-screen
+         * ===================================================
+        */
         public void MoveToScreen()
         {
             transform.localPosition = Vector3.zero;

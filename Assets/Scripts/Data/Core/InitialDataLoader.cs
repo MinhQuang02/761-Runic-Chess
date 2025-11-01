@@ -7,8 +7,13 @@ namespace Data.Core
 {
     public class InitialDataLoader : MonoBehaviour
     {
+        /*
+         * ===================================================
+         * Using Singleton Pattern to ensure only one instance of InitialDataLoader exists and intialize core data at the start of the game
+         * ===================================================
+        */
         private static GameObject Instance;
-        public MenuMovement mainMenu;
+        [SerializeField] private MenuMovement mainMenu;
         
         void Awake()
         {
@@ -23,18 +28,18 @@ namespace Data.Core
                 return;
             }
 
-            // Đưa menu chính vào vị trí hiển thị
-            mainMenu.MoveToScreen();
-
-            // Đọc dữ liệu chính
+            // Read main data from PlayerPrefs
             MainData.ReadMainData();
 
-            // Khởi tạo hàm render
+            // Initialize the static variables
             MainMenuRender.Initialize();
-            MainMenuRender.ChangeDisplayName();
-
-            // Khởi tạo âm thanh
             GameSounds.Initialize();
+
+            // Update display name in main menu
+            MainMenuRender.ChangeDisplayName();            
+
+            // Move main menu to screen
+            mainMenu.MoveToScreen();
         }
 
     }

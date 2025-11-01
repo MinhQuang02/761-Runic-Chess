@@ -7,15 +7,15 @@ namespace Core.MainMenu
 {
     public class RenameButton : MonoBehaviour
     {
+        /*
+         * ===================================================
+         * Using Singleton Pattern to ensure only one instance of RenameButton exists
+         * ===================================================
+        */
         private static GameObject Instance;
-
-        public MenuMovement setName;
-        public OptionMovement continueOption;
-        public OptionMovement newGameOption;
 
         public void Awake()
         {
-            // Singleton pattern
             if (Instance == null)
             {
                 Instance = this.gameObject;
@@ -26,16 +26,32 @@ namespace Core.MainMenu
             }
         }
 
+        /*
+         * ===================================================
+         * Declare all the variables used in the Rename Button
+         * ===================================================
+        */
+        [SerializeField] private MenuMovement setName;
+        [SerializeField] private OptionMovement continueOption;
+        [SerializeField] private OptionMovement newGameOption;
+        [SerializeField] private Settings updateSettings;
+
+        /*
+         * ===================================================
+         * Events after clicking the Rename Button
+         * ===================================================
+        */
         public void ClickRenameButton(int buttonIndex)
         {
+            // Change the current player session to the selected button index and update the name text color
             MainData.currentPlayerSession = buttonIndex;
+            MainMenuRender.ChangeNameTextColor();
 
-            // Đổi màu chữ của các chữ trở lại màu mặc định và màu của chữ của phiên chơi hiện tại thành màu đặc biệt
-            MainMenuRender.ChangeNameTextColor(buttonIndex);
-
-            // Cập nhập lại trạng thái của option display
+            // Move the Continue and New Game options to default positions
             continueOption.MoveToDefault();
             newGameOption.MoveToDefault();
+
+            // Check if the selected session is a Continue or New Game option
             if (MainData.isContinue[buttonIndex] == true)
             {
                 continueOption.MoveToDestination();
@@ -45,14 +61,16 @@ namespace Core.MainMenu
                 newGameOption.MoveToDestination();
             }
 
-            // Kiểm tra xem có tên phiên chơi không, nếu không có thì mở menu đặt tên
+            // Check if the selected session has a name set or not
             if (MainData.nameSessions[buttonIndex] == "null")
             {
                 setName.MoveToScreen();
             }
             else
             {
+                updateSettings.RenderSettings();
                 MainMenuRender.RenderRecordModal();
+                MainMenuRender.RenderSettingsModal();
             }
         }
     }
